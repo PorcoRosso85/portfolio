@@ -93,8 +93,8 @@ const App: React.FC = () => {
         </p>
       ) : null}
       <ul className="results">
-        {filtered.slice(0, 40).map(([item, highlightRanges]) => (
-          <li key={item.id}>
+        {filtered.slice(0, 40).map(([item, highlightRanges], index) => (
+          <li key={`${item.id}-${index}`}>
             <Highlight text={item} ranges={highlightRanges} />
           </li>
         ))}
