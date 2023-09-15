@@ -17,12 +17,11 @@ const mapResultItem = ({
 
 const App: React.FC = () => {
   const [count, setCount] = useState(0);
-
+  // 初期値を再設定することで、クライアントとサーバーで内容が一致するように
   useEffect(() => {
-    // 何らかの処理でカウント値を設定
     setCount(0);
   }, []);
-
+  // 初期値がnullの時のuxのため、条件付きレンダリングを追加
   if (count === null) return <p>Loading...</p>;
 
   const [datasetName, setDatasetName] = useState("companies");
@@ -31,15 +30,20 @@ const App: React.FC = () => {
   const [queryText, setQueryText] = useState("");
   const [strategy, setStrategy] = useState<FuzzySearchStrategy>("smart");
 
-  const b4 = performance.now();
-
+  const [filterTime, setFilterTime] = useState(0);
   const filtered = useFuzzySearchList({
     list: dataset,
     queryText,
     mapResultItem,
     strategy,
   });
-  const filterTime = performance.now() - b4;
+  useEffect(() => {
+    const before = performance.now();
+
+    const after = performance.now();
+    // const filterTime = performance.now() - b4;
+    setFilterTime(after - before);
+  }, [dataset, queryText, strategy]);
 
   return (
     <div className="app">
@@ -82,7 +86,7 @@ const App: React.FC = () => {
           type="search"
           value={queryText}
           onChange={(e) => setQueryText(e.target.value)}
-          placeholder={`Start typing to search ${datasetName}…`}
+          placeholder={`Start typing to search ${datasetName}...`}
           autoFocus
         />
       </div>
