@@ -1,10 +1,9 @@
 --- 
-import Sigma from '../components/sigma/index.tsx'
+import Sigma from '../components/sigma/index.astro'
 import Modal from '../components/sigma/Modal.astro'
 import Three from '../components/threejs/index.astro'
 ---
 
-<Sigma client:only="react" />
+<Sigma />
 <Modal />
-<!-- <Sigma client:load /> -->
 <Three />
