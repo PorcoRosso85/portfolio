@@ -12,12 +12,15 @@
   "dependencies": {
     "@astrojs/react": "^3.0.2",
     "@nozbe/microfuzz": "^1.0.0",
+    "@react-three/fiber": "^8.14.2",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
+    "@types/three": "^0.156.0",
     "astro": "^3.0.13",
     "graphology": "^0.25.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "sigma": "3.0.0-alpha3"
+    "sigma": "3.0.0-alpha3",
+    "three": "^0.156.1"
   }
 }
