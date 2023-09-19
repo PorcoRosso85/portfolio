@@ -2,6 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import TwoBoxes from "./TwoBoxes";
 import RenderThree from "./render_three";
 import * as ABox from "./ABox";
+import { Scene } from "./renderthree";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       </Canvas>
       <RenderThree />
       <ABox.default />
+      <Scene />
     </>
   );
 }
