@@ -16,7 +16,23 @@
       "runtimeArgs": ["dev"],
       "skipFiles": ["<node_internals>/**"],
       "internalConsoleOptions": "neverOpen",
-      "console": "integratedTerminal"
+      "console": "integratedTerminal",
+      "trace": true
+    },
+    {
+      "name": "chrome:lh:4321",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:4321",
+      "webRoot": "${workspaceFolder}",
+      "runtimeExecutable": "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe",
+      "runtimeArgs": [" --remote-debugging-port=9222"],
+      "port": 9222,
+      "internalConsoleOptions": "neverOpen",
+      // "console": "integratedTerminal",
+      "sourceMapPathOverrides": {
+        "/mnt/c/*": "C:\\*"
+      }
     }
   ]
 }
