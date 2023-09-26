@@ -1,9 +1,6 @@
 import * as THREE from "three";
 
-export const N = 300;
-export const COORD_RANGE = 300;
-
-export function createObjects(): THREE.Mesh[] {
+export function createObjects(N: any, COORD_RANGE: any): THREE.Mesh[] {
   const objs = [...Array(N)].map(
     () =>
       new THREE.Mesh(
