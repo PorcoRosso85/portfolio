@@ -1,13 +1,10 @@
 import * as THREE from "three";
-import ThreeRenderObjects from "three-render-objects";
 
-const COORD_RANGE = 300;
+export const N = 300;
+export const COORD_RANGE = 300;
 
-export const createObjects = () => {
-  const N = 300;
-
-  return Array.from(
-    { length: N },
+export function createObjects(): THREE.Mesh[] {
+  const objs = [...Array(N)].map(
     () =>
       new THREE.Mesh(
         new THREE.SphereGeometry(10, 16, 16),
@@ -18,9 +15,7 @@ export const createObjects = () => {
         })
       )
   );
-};
 
-export const initializeScene = (sceneElement, objs) => {
   objs.forEach((obj) => {
     ["x", "y", "z"].forEach(
       (dim) =>
@@ -28,7 +23,5 @@ export const initializeScene = (sceneElement, objs) => {
     );
   });
 
-  return ThreeRenderObjects({ controlType: "trackball" })(sceneElement).objects(
-    objs
-  );
-};
+  return objs;
+}

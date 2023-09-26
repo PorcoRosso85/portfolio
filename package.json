@@ -17,6 +17,7 @@
     "@types/react-dom": "^18.0.6",
     "@types/three": "^0.156.0",
     "astro": "^3.0.13",
+    "canvas-confetti": "^1.6.0",
     "graphology": "^0.25.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
