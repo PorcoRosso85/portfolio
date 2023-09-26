@@ -1,6 +1,7 @@
 import { dialog, closeDialog } from "./DialogManage";
 import { graphInstance } from "../service/GraphInstance";
 import Sigma from "sigma";
+import { SelectorDefinitions } from "./SelectorDefinitions";
 
 export function registerCloseButtonEvent(closeBtn: Element) {
   if (closeBtn) {
@@ -13,7 +14,9 @@ export function registerNodeClickEvent(renderer: Sigma) {
     const nodeId = event.node;
     const nodeData = graphInstance().getNodeAttributes(nodeId);
 
-    const nodeInfo = document.getElementById("nodeInfo"); // ID名は適宜調整
+    const nodeInfo = document.getElementById(
+      SelectorDefinitions.nodeInfo_divId
+    ); // ID名は適宜調整
     if (nodeInfo) {
       nodeInfo.innerHTML = `
         Node clicked:<br>
