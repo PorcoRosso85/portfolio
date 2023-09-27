@@ -3,7 +3,7 @@ import { store, indexes } from "../services/store";
 
 indexes.setIndexDefinition("byPriority", "todos", "priority");
 
-const Todos = () => {
+const Todos = (() => {
   const baseTodos = Model("todos");
 
   const priorities = () => indexes.getSliceIds("byPriority");
@@ -16,6 +16,6 @@ const Todos = () => {
     priorities,
     byPriority,
   };
-};
+})();
 
 export default Todos;
