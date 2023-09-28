@@ -6,6 +6,33 @@
       "name": "Development server",
       "request": "launch",
       "type": "node-terminal"
+    },
+    {
+      "name": "ui dev",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "${workspaceFolder}/.devbox/virtenv/.wrappers/bin/pnpm",
+      "runtimeArgs": ["dev"],
+      "skipFiles": ["<node_internals>/**"],
+      "internalConsoleOptions": "neverOpen",
+      "console": "integratedTerminal",
+      "trace": true
+    },
+    {
+      "name": "chrome:lh:4321",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:4321",
+      "webRoot": "${workspaceFolder}",
+      "runtimeExecutable": "/mnt/c/Program Files/Google/Chrome/Application/chrome.exe",
+      "runtimeArgs": [" --remote-debugging-port=9222"],
+      "port": 9222,
+      "internalConsoleOptions": "neverOpen",
+      // "console": "integratedTerminal",
+      "sourceMapPathOverrides": {
+        "/mnt/c/*": "C:\\*"
+      }
     }
   ]
 }
