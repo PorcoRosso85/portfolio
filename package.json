@@ -12,6 +12,7 @@
   "dependencies": {
     "@astrojs/react": "^3.0.2",
     "@nozbe/microfuzz": "^1.0.0",
+    "@react-three/drei": "^9.86.0",
     "@react-three/fiber": "^8.14.3",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",

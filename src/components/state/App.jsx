@@ -1,11 +1,10 @@
-import StateExample from "../state/example";
+import StateExample from "./example";
 
 export default () => {
   return (
     <>
       <mesh>
-        <boxGeometry />
-        <meshStandardMaterial />
+        <StateExample />
       </mesh>
       <ambientLight intensity={0.1} />
       <directionalLight color="red" position={[0, 0, 5]} />
