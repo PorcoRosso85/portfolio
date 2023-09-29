@@ -8,10 +8,8 @@ export default () => {
 
   return (
     <group>
-      <mesh onClick={() => alert("click")}>
-        <Text key={1} text={"hi"} position={[2, -2, -2]}></Text>,
-        <Text key={2} text={"bye"} position={[4, -4, -4]}></Text>,
-      </mesh>
+      <Text key={1} text={"hi"} position={[2, -2, -2]}></Text>,
+      <Text key={2} text={"bye"} position={[4, -4, -4]}></Text>,
     </group>
   );
 };
