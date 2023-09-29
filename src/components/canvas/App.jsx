@@ -15,7 +15,10 @@ export default () => {
         <StateExample />
         <Drei />
       </Canvas>
-      <Coordinate />
+      <Canvas camera={{ position: [5, 5, 10] }}>
+        {/* <BoxMesh position={[0.5, 0.5, 0.5]} size={[1, 1, 1]} /> */}
+        <Coordinate size={25} />
+      </Canvas>
     </div>
   );
 };

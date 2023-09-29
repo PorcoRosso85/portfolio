@@ -31,6 +31,7 @@ const YZPlane = ({ size }) => (
 );
 
 export default function Grid({ size }) {
+  const textScale = size / 20;
   return (
     <group>
       <Text
@@ -38,7 +39,7 @@ export default function Grid({ size }) {
         anchorX="center" // default
         anchorY="middle" // default
         position={[size / 2 + 1, 0, 0]}
-        scale={[4, 4, 4]}
+        scale={[textScale, textScale, textScale]}
       >
         X+
       </Text>
@@ -47,7 +48,7 @@ export default function Grid({ size }) {
         anchorX="center" // default
         anchorY="middle" // default
         position={[-size / 2 - 1, 0, 0]}
-        scale={[4, 4, 4]}
+        scale={[textScale, textScale, textScale]}
       >
         X-
       </Text>
@@ -56,7 +57,7 @@ export default function Grid({ size }) {
         anchorX="center" // default
         anchorY="middle" // default
         position={[0, size / 2 + 1, 0]}
-        scale={[4, 4, 4]}
+        scale={[textScale, textScale, textScale]}
       >
         Y+
       </Text>
@@ -65,7 +66,7 @@ export default function Grid({ size }) {
         anchorX="center" // default
         anchorY="middle" // default
         position={[0, -size / 2 - 1, 0]}
-        scale={[4, 4, 4]}
+        scale={[textScale, textScale, textScale]}
       >
         Y-
       </Text>
@@ -74,7 +75,7 @@ export default function Grid({ size }) {
         anchorX="center" // default
         anchorY="middle" // default
         position={[0, 0, size / 2 + 1]}
-        scale={[4, 4, 4]}
+        scale={[textScale, textScale, textScale]}
       >
         Z+
       </Text>
@@ -83,7 +84,7 @@ export default function Grid({ size }) {
         anchorX="center" // default
         anchorY="middle" // default
         position={[0, 0, -size / 2 - 1]}
-        scale={[4, 4, 4]}
+        scale={[textScale, textScale, textScale]}
       >
         Z-
       </Text>
