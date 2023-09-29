@@ -2,6 +2,7 @@ import { Canvas } from "@react-three/fiber";
 import BoxMesh from "../box/App.jsx";
 import StateExample from "../state/App.jsx";
 import Drei from "../drei/App.jsx";
+import Coordinate from "../coordinate/App.jsx";
 
 export default () => {
   return (
@@ -14,6 +15,7 @@ export default () => {
         <StateExample />
         <Drei />
       </Canvas>
+      <Coordinate />
     </div>
   );
 };
