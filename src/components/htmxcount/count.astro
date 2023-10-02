@@ -1,0 +1,7 @@
+---
+import fs from "fs"
+const count = +fs.readFileSync("./src/components/htmxcount/tmp/count", "utf8").trim() + 1
+fs.writeFileSync("./src/components/htmxcount/tmp/count", String(count))
+---
+
+{count}
