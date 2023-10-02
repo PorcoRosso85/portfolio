@@ -26,13 +26,11 @@ jobs:
           node-version: "16"
           cache: "npm"
 
-      # Not using npm? Change `npm ci` to `yarn install` or `pnpm i`
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install
 
-      # Not using npm? Change `npm run build` to `yarn build` or `pnpm run build`
       - name: Build Astro
-        run: npm run build --if-present
+        run: pnpm run build --if-present
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
