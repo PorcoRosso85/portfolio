@@ -20,11 +20,17 @@ jobs:
       - name: Check out your repository using git
         uses: actions/checkout@v2
 
-      - name: Use Node.js 20
+      - name: Install Node.js 20
         uses: actions/setup-node@v2
         with:
           node-version: "20"
           package-manager: pnpm@latest
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+          run_install: false
 
       # Not using npm? Change `npm ci` to `yarn install` or `pnpm i`
       - name: Install dependencies
