@@ -1,4 +1,4 @@
-name: Deploy Astro to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   # Trigger the workflow every time you push to the `main` branch
@@ -20,17 +20,19 @@ jobs:
       - name: Check out your repository using git
         uses: actions/checkout@v2
 
-      - name: Use Node.js 16
+      - name: Use Node.js 20
         uses: actions/setup-node@v2
         with:
-          node-version: "16"
-          cache: "npm"
+          node-version: "20"
+          package-manager: pnpm@latest
 
+      # Not using npm? Change `npm ci` to `yarn install` or `pnpm i`
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm i
 
+      # Not using npm? Change `npm run build` to `yarn build` or `pnpm run build`
       - name: Build Astro
-        run: pnpm run build --if-present
+        run: pnpm build --if-present
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
