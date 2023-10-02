@@ -1,10 +1,17 @@
 ---
-import "./styles.scss"
+// import "./styles.scss"
+// import StylesScss from "./styles.astro"
 ---
 
-<div class="viewport">
-  <div class="scene3D-container">
-    <div class="scene3D"></div>
-  </div>
-  <script src="./index.js"></script>
-</div>
+<viewport-scene3d>
+  <template shadowrootmode="open">
+  viewport-scene3d
+    <!-- <StylesScss /> -->
+    <div class="viewport">
+      <div class="scene3D-container">
+        <div class="scene3D"></div>
+        <script type="module" src="./src/components/cardplus1/index.js"></script>
+      </div>
+    </div>
+  </template>
+</viewport-scene3d>

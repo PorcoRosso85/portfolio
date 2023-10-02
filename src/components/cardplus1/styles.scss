@@ -34,7 +34,7 @@
       transform: translateZ(calc(var(--cameraZ) * 1px));
       will-change: transform;
 
-      > div {
+      > div[id^="film-"] {
         position: absolute;
         display: block;
         width: 100%;
@@ -67,7 +67,7 @@
   }
 }
 
-.scene3D > div {
+.scene3D > div[id^="film-"] {
   opacity: var(--cardOpacity);
   /* 既存のスタイル */
 }
@@ -115,20 +115,22 @@ h1 {
   z-index: 1;
 }
 
-.scene3D {
-  > div {
-    padding: 2rem;
+.scene3D > div[id^="film-"] {
+  padding: 2rem;
 
-    h2 {
-      margin-top: 0;
-      font-family: "Playfair Display SC", serif;
-      font-size: 1.5rem;
-    }
+  h2 {
+    margin-top: 0;
+    font-family: "Playfair Display SC", serif;
+    font-size: 1.5rem;
+  }
 
-    @for $i from 0 through 25 {
-      &:nth-child(#{$i}) {
-        background-color: hsl(-30 + ($i * 30), 100%, 88%);
-      }
+  p:nth-child(2) {
+    font-weight: bold;
+  }
+
+  @for $i from 0 through 25 {
+    &:nth-child(#{$i}) {
+      background-color: hsl(-30 + ($i * 30), 100%, 88%);
     }
   }
 }
