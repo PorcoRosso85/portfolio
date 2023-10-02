@@ -34,7 +34,7 @@
       transform: translateZ(calc(var(--cameraZ) * 1px));
       will-change: transform;
 
-      > div[id^="film-"] {
+      > button {
         position: absolute;
         display: block;
         width: 100%;
@@ -67,7 +67,7 @@
   }
 }
 
-.scene3D > div[id^="film-"] {
+.scene3D > button {
   opacity: var(--cardOpacity);
   /* 既存のスタイル */
 }
@@ -115,7 +115,7 @@ h1 {
   z-index: 1;
 }
 
-.scene3D > div[id^="film-"] {
+.scene3D > button {
   padding: 2rem;
 
   h2 {

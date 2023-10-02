@@ -19,25 +19,26 @@ document.addEventListener("DOMContentLoaded", function () {
 // updateSingleFilm()
 
 function createFilmItem(film, index) {
-  return `<div id="film-${index}">
+  return `<button id="film-${index}" hx-post="/click" hx-trigger="click" hx-swap="outerHTML">
       <h2>${film.title}</h2>
       <p>Index: ${index}</p>
       <p>Year: ${film.release_date}</p>
       <p>Director: ${film.director}</p>
       <p>${film.description}</p>
-    </div>`;
+    </button>`;
 }
 
 function appendFilms(films) {
-  // const filmsEl = document.querySelector(".viewport .scene3D");
-  // if shadow-root
-  const shadowRoot = document.querySelector("viewport-scene3d").shadowRoot;
-  const filmsEl = shadowRoot.querySelector(".viewport .scene3D");
+  const filmsEl = document.querySelector(".viewport .scene3D");
+  // // if shadow-root
+  // const shadowRoot = document.querySelector("viewport-scene3d").shadowRoot;
+  // const filmsEl = shadowRoot.querySelector(".viewport .scene3D");
   let filmsNodes = [];
 
   for (let index = 0; index < films.length; index++) {
     filmsNodes.push(createFilmItem(films[index], index));
   }
 
+  // LightDOMへ追加
   filmsEl.innerHTML = filmsNodes.join(" ");
 }
