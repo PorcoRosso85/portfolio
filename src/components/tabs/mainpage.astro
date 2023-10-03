@@ -1,0 +1,4 @@
+---
+const baseUrl = import.meta.env.BASE_URL
+---
+<div id="tabs" hx-get=`${baseUrl}/contentslist/components/addheart` hx-trigger="load delay:100ms" hx-target="#tabs" hx-swap="innerHTML"></div>
