@@ -24,6 +24,4 @@ tmp/
 tmp/*
 example
 examples
-contents
-pnpm-lock.yaml
 src/components/htmxcount/tmp/count
