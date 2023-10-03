@@ -1,13 +1,20 @@
 ---
-const baseUrl = import.meta.env.BASE_URL
+const baseUrl = import.meta.env.BASE_URL;
+const tabs = [
+  { url: '/contentslist/components/addheart', label: '1' },
+  { url: '/contentslist/components/clicked', label: '2' },
+  { url: '/contentslist/components/declarative', label: '3' },
+  { url: '/contentslist/components/count', label: '4'},
+  { url: '/contentslist/components/filmcards', label: '5'},
+];
 ---
 
 <div class="tab-list" role="tablist">
-	<button hx-get=`${baseUrl}/contentslist/components/addheart` class="selected" role="tab" aria-selected="false" aria-controls="tab-content">Tab 1</button>
-	<button hx-get=`${baseUrl}/contentslist/components/clicked` role="tab" aria-selected="false" aria-controls="tab-content">Tab 2</button>
-	<button hx-get="/tab3" role="tab" aria-selected="false" aria-controls="tab-content">Tab 3</button>
+  {tabs.map(tab => (
+    <button hx-get={`${baseUrl}${tab.url}`} role="tab" aria-selected="false" aria-controls="tab-content">{tab.label}</button>
+  ))}
 </div>
 
 <div id="tab-content" role="tabpanel" class="tab-content">
-    <slot />
+  <slot />
 </div>
