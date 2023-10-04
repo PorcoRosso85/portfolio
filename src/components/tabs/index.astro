@@ -11,6 +11,33 @@ const tabs = [
 ];
 ---
 
+<style>
+  .tab-list {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .tab-list button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .tab-list button[aria-selected="true"] {
+    border-bottom: 2px solid #007bff;
+  }
+
+  .tab-content {
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-top: none;
+    overflow: auto; /* コンテンツがはみ出た場合にスクロールバーを表示 */
+    max-height: 300px; /* 最大の高さを設定 */
+  }
+</style>
+
 <div class="tab-list" role="tablist">
   {tabs.map(tab => (
     <button hx-get={`${baseUrl}${tab.url}`} role="tab" aria-selected="false" aria-controls="tab-content">{tab.label}</button>

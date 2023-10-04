@@ -1,4 +1,23 @@
 ---
 const baseUrl = import.meta.env.BASE_URL
 ---
-<div id="tabs" hx-get=`${baseUrl}/contentslist/components/addheart` hx-trigger="load delay:100ms" hx-target="#tabs" hx-swap="innerHTML"></div>
+<style>
+#tabs {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 16px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+  }
+
+#tabs:hover {
+    background-color: #f1f1f1;
+  }
+</style>
+<div id="tabs"
+    hx-get=`${baseUrl}/contentslist/components/addheart`
+    hx-trigger="load delay:100ms"
+    hx-target="#tabs"
+    hx-swap="innerHTML">
+</div>
