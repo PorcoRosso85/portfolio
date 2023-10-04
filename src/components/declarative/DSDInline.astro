@@ -1,0 +1,18 @@
+---
+---
+<dsd-inline>
+    <template shadowrootmode="open">
+        <style>
+            h1 { color: pink }
+        </style>
+    </template>
+    <h1>hello inline</h1>
+</dsd-inline>
+
+<!-- TODO: litかqwikか、http.get以外の方法で取得するか -->
+<script>
+    const dsdInline = document.querySelector('dsd-inline');
+    const template = dsdInline.querySelector('template');
+    const shadowRoot = dsdInline.attachShadow({mode: 'open'});
+    shadowRoot.appendChild(template.content.cloneNode(true));
+</script>
