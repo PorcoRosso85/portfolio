@@ -3,27 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <title>HTMX Example</title>
-    <script src="./local.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/htmx/1.9.6/htmx.min.js"></script>
-    <script>
-      console.log("HTMX is " + (htmx ? "available" : "not available"));
-    </script>
-    <script src="./index.js"></script>
   </head>
   <body>
-    <div id="oldElement" hx-ext="swapFromLocalStorage" hx-trigger="mouseenter">
-      既存の要素
-    </div>
-    <script>
-      console.log(
-        "LocalStorage newElement: ",
-        localStorage.getItem("newElement")
-      );
-      document
-        .getElementById("oldElement")
-        .addEventListener("click", function () {
-          console.log("クリックされました");
-        });
-    </script>
+    <div id="oldElement" hx-ext="swapLocal" hx-trigger="click">既存の要素</div>
+    <old-element>
+      <template shadowrootmode="open">
+        <script type="module" src="./console.js"></script>
+        <script type="module" src="./swapLocal.js"></script>
+      </template>
+    </old-element>
   </body>
 </html>
