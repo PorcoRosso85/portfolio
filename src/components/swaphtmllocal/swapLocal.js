@@ -4,6 +4,7 @@ htmx.defineExtension("swapLocal", {
   onEvent: function (name, evt) {
     console.log("イベント名: " + name); // イベント名を出力
     if (name === "htmx:trigger") {
+      // TODO: shadow dom内のスコープされたスクリプト＝shadow-rootからたどって取得すべき
       const targetElement = document.getElementById("oldElement"); // 明示的に要素を取得
       const newElement = localStorage.getItem("newElement");
 
