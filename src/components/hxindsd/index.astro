@@ -1,0 +1,14 @@
+---
+const baseUrl = import.meta.env.BASE_URL;
+---
+<dsd-hx>
+    <template shadowrootmode="open">
+        <style>
+            h3 { color: pink; }
+        </style>
+        <h3>hello dsd and hx</h3>
+        <button hx-trigger="click" hx-get=`${baseUrl}/contentslist/components/clicked`></button>
+    </template>
+</dsd-hx>
+
+<button hx-trigger="click" hx-get=`${baseUrl}/contentslist/components/clicked`></button>
