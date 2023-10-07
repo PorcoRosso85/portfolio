@@ -1,0 +1,68 @@
+<div id="phase1">
+  <ol class="directory">
+    <li><span>アイテム 1</span></li>
+    <li>
+      <span>アイテム 2</span>
+      <ol class="file">
+        <li><span>アイテム 3</span></li>
+        <li>
+          <span>アイテム 4</span>
+          <ol class="function">
+            <li><span>関数 1</span></li>
+            <li><span>関数 2</span></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><span>アイテム 5</span></li>
+    <li><span>アイテム 1</span></li>
+    <li>
+      <span>アイテム 2</span>
+      <ol class="file">
+        <li><span>アイテム 3</span></li>
+        <li>
+          <span>アイテム 4</span>
+          <ol class="function">
+            <li><span>関数 1</span></li>
+            <li><span>関数 2</span></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><span>アイテム 5</span></li>
+  </ol>
+</div>
+
+<style>
+.directory, .file {
+  list-style-type: none;
+}
+
+.directory > li,
+.file > li {
+  display: flex;
+  align-items: flex-start;
+}
+
+.directory > li > span,
+.file > li > span {
+  margin-right: 20px;
+}
+
+li > ol {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+li > ol.function {
+  flex-direction: row;
+}
+
+.function > li {
+  margin-right: 10px;
+}
+
+  </style>
