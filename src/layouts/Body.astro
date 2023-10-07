@@ -1,81 +1,90 @@
 ---
-const baseUrl = import.meta.env.BASE_URL
+const baseUrl = import.meta.env.BASE_URL;
 const page = {
-    phase1: `${baseUrl}/contentslist/components/phase1`,
-    phase2: `${baseUrl}/contentslist/components/phase2`
-}
+  phase1: `${baseUrl}/contentslist/components/phase1`,
+  phase2: `${baseUrl}/contentslist/components/phase2`,
+};
 ---
+
 <body>
+  <!-- ヘッダー -->
+  <header id="global-header">
+    <!-- ナビゲーション -->
+    <nav>
+      <ul>
+        <li><a href="#">home</a></li>
+        <li><a href="#">articles</a></li>
+        <li><a href="#">contacts</a></li>
+      </ul>
+    </nav>
+  </header>
 
-	<!-- ヘッダー -->
-	<header id="global-header">
-		<!-- ナビゲーション -->
-		<nav>
-			<ul>
-				<li><a href="#">home</a></li>
-				<li><a href="#">articles</a></li>
-				<li><a href="#">contacts</a></li>
-			</ul>
-		</nav>
-	</header>
+  <!-- サイドバー -->
+  <aside id="sidebar">
+    <h3>Links</h3>
+    <ul id="button-list">
+      <li>
+        <button
+          hx-target="#main-content"
+          hx-get=`${page.phase1}`
+          hx-swap="innerHTML">phase1</button>
+      </li>
+      <li>
+        <button
+          hx-target="#main-content"
+          hx-get=`${page.phase2}`
+          hx-swap="innerHTML">phase2</button>
+      </li>
+      <!-- <button hx-get=`${page.div1}` hx-swap="outerHTML">div1</button> <div /> -->
+    </ul>
+  </aside>
 
-    <!-- サイドバー -->
-    <aside id="sidebar">
-        <h3>Links</h3>
-        <ul id="button-list">
-            <li><button hx-target="#main-content" hx-get=`${page.phase1}` hx-swap="innerHTML">phase1</a></button>
-            <li><button hx-target="#main-content" hx-get=`${page.phase2}` hx-swap="innerHTML">phase2</a></button>
-            <!-- <button hx-get=`${page.div1}` hx-swap="outerHTML">div1</button> <div /> -->
-        </ul>
-    </aside>
+  <!-- メインコンテンツ -->
+  <main id="main-content">
+    <h3>Main</h3>
+    <slot />
+  </main>
 
-    <!-- メインコンテンツ -->
-    <main id="main-content">
-        <h3>Main</h3>
-        <slot></slot>
-    </main>
-
-	<!-- フッター -->
-	<footer id="global-footer">
-		<p>Copyright 2023 by Por85.</p>
-	</footer>
-
+  <!-- フッター -->
+  <footer id="global-footer">
+    <p>Copyright 2023 by Por85.</p>
+  </footer>
 </body>
 
 <style>
-/* bodyをグリッドコンテナにする */
-body {
+  /* bodyをグリッドコンテナにする */
+  body {
     display: grid;
     grid-template-areas:
-        "header header"
-        "sidebar main"
-        "footer footer";
+      "header header"
+      "sidebar main"
+      "footer footer";
     grid-template-columns: 1fr 3fr;
     grid-template-rows: auto 1fr auto;
-}
+  }
 
-ul {
+  ul {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-}
+  }
 
-/* 各エリアのスタイリングは変わらず */
-#global-header {
+  /* 各エリアのスタイリングは変わらず */
+  #global-header {
     grid-area: header;
     background-color: #ccc;
-}
+  }
 
-#sidebar {
+  #sidebar {
     grid-area: sidebar;
     background-color: #aaa;
-}
+  }
 
-#main-content {
+  #main-content {
     grid-area: main;
-}
+  }
 
-#global-footer {
+  #global-footer {
     grid-area: footer;
     background-color: #ccc;
-}
+  }
 </style>
