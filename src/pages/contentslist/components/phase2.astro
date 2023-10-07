@@ -1,3 +1,45 @@
-<div id="2">
-    hello div2
+<div id="phase2">
+  <div id="element1" style="left: 50px; top: 50px; position: absolute;">
+    要素1
+  </div>
+  <div id="element2" style="left: 200px; top: 200px; position: absolute;">
+    要素2
+  </div>
+  <div id="line" style="position: absolute;"></div>
+  <script>
+    function drawLine() {
+      const elem1 = document.getElementById("element1").getBoundingClientRect();
+      const elem2 = document.getElementById("element2").getBoundingClientRect();
+      const line = document.getElementById("line");
+
+      const x1 = elem1.left + elem1.width / 2;
+      const y1 = elem1.top + elem1.height / 2;
+      const x2 = elem2.left + elem2.width / 2;
+      const y2 = elem2.top + elem2.height / 2;
+
+      const length = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
+      const angle = (Math.atan2(y2 - y1, x2 - x1) * 180) / Math.PI;
+
+      line.style.height = `${length}px`;
+      const cssAngle = (360 - angle) % 360;
+      line.style.transform = `rotate(${cssAngle}deg)`;
+      line.style.left = `${x1}px`;
+      line.style.top = `${y1}px`;
+    }
+    window.addEventListener("load", drawLine);
+  </script>
 </div>
+
+<style>
+  #element1,
+  #element2 {
+    position: absolute;
+  }
+  #line {
+    position: absolute;
+    height: 0;
+    width: 1px;
+    background-color: black;
+    transform-origin: top left;
+  }
+</style>

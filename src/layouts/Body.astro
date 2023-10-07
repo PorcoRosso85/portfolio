@@ -21,29 +21,27 @@ const page = {
 
   <!-- サイドバー -->
   <aside id="sidebar">
-    <h3>Links</h3>
     <ul id="button-list">
       <li>
         <button
           hx-target="#main-content"
           hx-get=`${page.phase1}`
-          hx-swap="innerHTML">phase1</button>
+          hx-swap="innerHTML">phase1</button
+        >
       </li>
       <li>
         <button
           hx-target="#main-content"
           hx-get=`${page.phase2}`
-          hx-swap="innerHTML">phase2</button>
+          hx-swap="innerHTML">phase2</button
+        >
       </li>
       <!-- <button hx-get=`${page.div1}` hx-swap="outerHTML">div1</button> <div /> -->
     </ul>
   </aside>
 
   <!-- メインコンテンツ -->
-  <main id="main-content">
-    <h3>Main</h3>
-    <slot />
-  </main>
+  <main id="main-content"></main>
 
   <!-- フッター -->
   <footer id="global-footer">
@@ -52,15 +50,26 @@ const page = {
 </body>
 
 <style>
-  /* bodyをグリッドコンテナにする */
   body {
     display: grid;
     grid-template-areas:
       "header header"
       "sidebar main"
       "footer footer";
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: minmax(0, 0.4fr) 3fr; /* ここを変更 */
     grid-template-rows: auto 1fr auto;
+  }
+
+  @media (max-width: 1080px) {
+    body {
+      grid-template-areas:
+        "header"
+        "sidebar"
+        "main"
+        "footer";
+      grid-template-columns: 1fr;
+      grid-template-rows: auto;
+    }
   }
 
   ul {
