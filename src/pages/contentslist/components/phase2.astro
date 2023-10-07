@@ -1,15 +1,21 @@
 ---
+import DrawElements from "../../../utils/interaction/drawElements.js.astro";
 import DrawLine from "../../../utils/interaction/drawLine.js.astro";
 ---
 
 <div id="phase2">
-  <div id="element1" style="left: 50px; top: 50px; position: absolute;">
-    要素1
-  </div>
-  <div id="element2" style="left: 200px; top: 200px; position: absolute;">
-    要素2
-  </div>
+  <div id="element1">要素1</div>
+  <div id="element2">要素2</div>
   <div id="line" style="position: absolute;"></div>
+
+  <script>
+    window.addEventListener("load", function () {
+      loadCoordinatesFromLocalStorage();
+      drawLine("line");
+    });
+  </script>
+
+  <DrawElements />
 
   <DrawLine />
 

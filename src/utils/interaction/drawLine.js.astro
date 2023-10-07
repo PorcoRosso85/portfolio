@@ -21,6 +21,25 @@
     return { length, angle };
   }
 
+  function drawLine(lineId) {
+    const coordinates = calculateCoordinates("element1", "element2");
+    const { length, angle } = calculateDistanceAndAngle(coordinates);
+    const { x1, y1 } = coordinates;
+    const line = document.getElementById(lineId);
+
+    // TODO: css外部化
+    line.style.position = "absolute";
+    line.style.height = "2px"; // ラインの太さを設定
+    line.style.backgroundColor = "black"; // ラインの色を設定
+    line.style.transformOrigin = "0 50%"; // 回転の基点を設定
+    line.style.width = `${length}px`;
+    line.style.transform = `rotate(${angle}deg)`;
+    line.style.left = `${x1}px`;
+    line.style.top = `${y1 - 1}px`; // ラインの太さを考慮
+  }
+
+  let draggedElement = null;
+
   function onMousedown(event) {
     draggedElement = event.target;
     document.addEventListener("mousemove", onMousemove);
@@ -35,7 +54,16 @@
     }
   }
 
+  //   function onMouseup() {
+  //     draggedElement = null;
+  //     document.removeEventListener("mousemove", onMousemove);
+  //   }
+
+  // ドラッグが終わったら、座標情報をローカルストレージに保存する
   function onMouseup() {
+    if (draggedElement) {
+      saveCoordinatesToLocalStorage(draggedElement);
+    }
     draggedElement = null;
     document.removeEventListener("mousemove", onMousemove);
   }
@@ -55,22 +83,4 @@
       event.target.style.backgroundColor = "";
     }
   }
-  function drawLine(lineId) {
-    const coordinates = calculateCoordinates("element1", "element2");
-    const { length, angle } = calculateDistanceAndAngle(coordinates);
-    const { x1, y1 } = coordinates;
-    const line = document.getElementById(lineId);
-
-    // TODO: css外部化
-    line.style.position = "absolute";
-    line.style.height = "2px"; // ラインの太さを設定
-    line.style.backgroundColor = "black"; // ラインの色を設定
-    line.style.transformOrigin = "0 50%"; // 回転の基点を設定
-    line.style.width = `${length}px`;
-    line.style.transform = `rotate(${angle}deg)`;
-    line.style.left = `${x1}px`;
-    line.style.top = `${y1 - 1}px`; // ラインの太さを考慮
-  }
-
-  let draggedElement = null;
 </script>
