@@ -29,5 +29,10 @@
     "three": "^0.156.1",
     "three-render-objects": "^1.28.6",
     "tinybase": "^4.3.6"
+  },
+  "devDependencies": {
+    "eslint": "^8.51.0",
+    "eslint-plugin-astro": "^0.29.1",
+    "prettier-plugin-astro": "^0.12.0"
   }
 }
