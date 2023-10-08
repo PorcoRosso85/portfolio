@@ -1,26 +1,20 @@
 <!-- Wrap the component elements in our custom element “astro-heart”. -->
 <astro-heart>
+  <template shadowrootmode="open">
     <button aria-label="Heart">💜</button> × <span>0</span>
+    <script>
+      let count = 0;
+
+      const el = document.querySelector("astro-heart");
+      const shadowRoot = el.shadowRoot;
+      const heartButton = shadowRoot.querySelector("button");
+      const countSpan = shadowRoot.querySelector("span");
+
+      // ボタンがクリックされるたびにカウントを更新する
+      heartButton.addEventListener("click", () => {
+        count++;
+        countSpan.textContent = count.toString();
+      });
+    </script>
+  </template>
 </astro-heart>
-
-<script>
-// Define the behaviour for our new type of HTML element.
-class AstroHeart extends HTMLElement {
-  constructor() {
-    super();
-    let count = 0;
-
-    const heartButton = this.querySelector('button');
-    const countSpan = this.querySelector('span');
-
-    // Each time the button is clicked, update the count.
-    heartButton.addEventListener('click', () => {
-      count++;
-      countSpan.textContent = count.toString();
-    });
-  }
-}
-
-// Tell the browser to use our AstroHeart class for <astro-heart> elements.
-customElements.define('astro-heart', AstroHeart);
-</script>
