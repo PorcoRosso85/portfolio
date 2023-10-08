@@ -24,3 +24,22 @@ export function updateElementPosition(
     element.style.top = coords.top;
   }
 }
+
+// 3. これらの関数を使って要素の位置を設定する関数
+export function setElementPositions(elFrom: string, elTo: string): void {
+  const elFromCoords = loadCoordinatesFromLocalStorage(elFrom);
+  const elToCoords = loadCoordinatesFromLocalStorage(elTo);
+
+  updateElementPosition(elFrom, elFromCoords);
+  updateElementPosition(elTo, elToCoords);
+}
+
+// 座標情報をローカルストレージに保存する
+export function saveCoordinatesToLocalStorage(el: HTMLElement) {
+  const rect = el.getBoundingClientRect();
+  const coords = {
+    left: `${rect.left}px`,
+    top: `${rect.top}px`,
+  };
+  localStorage.setItem(el.id, JSON.stringify(coords));
+}
