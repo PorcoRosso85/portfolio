@@ -1,52 +1,8 @@
 ---
 import DrawElements from "../../../utils/interaction/drawElements.js.astro";
 import DrawLine from "../../../utils/interaction/drawLine.js.astro";
+
+import PhaseTwo from "../../../components/phasetwo/index.astro";
 ---
 
-<div id="phase2">
-  <div id="element1">要素1</div>
-  <div id="element2">要素2</div>
-  <div id="line" style="position: absolute;"></div>
-
-  <script>
-    window.addEventListener("load", function () {
-      loadCoordinatesFromLocalStorage();
-      drawLine("line");
-    });
-  </script>
-
-  <DrawElements />
-
-  <DrawLine />
-
-  <script>
-    window.addEventListener("load", () => {
-      drawLine("line");
-      const elem1 = document.getElementById("element1");
-      const elem2 = document.getElementById("element2");
-
-      // 既存のマウスダウンイベントに加えて、マウスオーバー・マウスアウトイベントを追加
-      elem1.addEventListener("mousedown", onMousedown);
-      elem1.addEventListener("mouseover", highlightElement);
-      elem1.addEventListener("mouseout", removeHighlight);
-
-      elem2.addEventListener("mousedown", onMousedown);
-      elem2.addEventListener("mouseover", highlightElement);
-      elem2.addEventListener("mouseout", removeHighlight);
-
-      line.addEventListener("mouseover", highlightElement);
-      line.addEventListener("mouseout", removeHighlight);
-
-      document.addEventListener("mouseup", onMouseup);
-    });
-  </script>
-</div>
-
-<style>
-  #element1,
-  #element2 {
-    position: absolute;
-    user-select: none; /* テキストの選択を防止 */
-    cursor: move; /* ドラッグ可能であることを示すカーソル */
-  }
-</style>
+<PhaseTwo />
