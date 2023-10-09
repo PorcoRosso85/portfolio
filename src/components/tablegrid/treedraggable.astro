@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <style>
+      .tree-table .collapse,
+      .tree-table .expand {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="tree-table" id="treeTable">
+      <tr data-level="1">
+        <td><span class="expand">[+]</span> 親1</td>
+      </tr>
+      <tr data-level="2" style="display:none;">
+        <td> 子1-1</td>
+      </tr>
+      <tr data-level="2" style="display:none;">
+        <td> 子1-2</td>
+      </tr>
+      <tr data-level="1">
+        <td><span class="expand">[+]</span> 親2</td>
+      </tr>
+      <tr data-level="2" style="display:none;">
+        <td> 子2-1</td>
+      </tr>
+      <tr data-level="1" draggable="true">
+        <td><span class="expand">[+]</span> 親3</td>
+      </tr>
+      <tr data-level="2" style="display:none;" draggable="true">
+        <td> 子3-1</td>
+      </tr>
+      <tr data-level="2" style="display:none;" draggable="true">
+        <td> 子3-2</td>
+      </tr>
+    </table>
+
+    <script>
+      document
+        .querySelectorAll(".tree-table .expand")
+        .forEach(function (expandIcon) {
+          expandIcon.addEventListener("click", function () {
+            const parentRow = expandIcon.closest("tr");
+            const level = parseInt(parentRow.getAttribute("data-level"));
+            let nextRow = parentRow.nextElementSibling;
+            while (
+              nextRow &&
+              parseInt(nextRow.getAttribute("data-level")) > level
+            ) {
+              if (expandIcon.textContent === "[+]") {
+                nextRow.style.display = "";
+              } else {
+                nextRow.style.display = "none";
+              }
+              nextRow = nextRow.nextElementSibling;
+            }
+            expandIcon.textContent =
+              expandIcon.textContent === "[+]" ? "[-]" : "[+]";
+          });
+        });
+
+      let draggedElem = null;
+
+      document.querySelectorAll("#treeTable tr").forEach(function (row) {
+        row.addEventListener("dragstart", function (e) {
+          draggedElem = this;
+          e.dataTransfer.effectAllowed = "move";
+        });
+
+        row.addEventListener("dragover", function (e) {
+          e.preventDefault();
+          e.dataTransfer.dropEffect = "move";
+        });
+
+        row.addEventListener("drop", function (e) {
+          e.preventDefault();
+          if (draggedElem !== this) {
+            this.parentNode.removeChild(draggedElem);
+            this.insertAdjacentElement("beforebegin", draggedElem);
+          }
+        });
+
+        row.addEventListener("dragend", function (e) {
+          draggedElem = null;
+        });
+      });
+    </script></body>
+</html>

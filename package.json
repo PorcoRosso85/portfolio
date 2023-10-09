@@ -26,6 +26,7 @@
     "reactfuzz": "link:/home/user/pjs/examples/reactfuzz",
     "sass": "^1.68.0",
     "sigma": "3.0.0-alpha3",
+    "sortablejs": "^1.15.0",
     "three": "^0.156.1",
     "three-render-objects": "^1.28.6",
     "tinybase": "^4.3.6"

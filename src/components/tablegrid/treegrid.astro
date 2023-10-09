@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <style>
+      #gridContainer {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+      .grid-item {
+        border: 1px solid #000;
+        padding: 5px;
+        cursor: move;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="gridContainer">
+      <div class="grid-item" draggable="true">親1</div>
+      <div class="grid-item" style="display:none;" draggable="true">子1-1</div>
+      <div class="grid-item" style="display:none;" draggable="true">子1-2</div>
+      <div class="grid-item" draggable="true">親2</div>
+      <div class="grid-item" style="display:none;" draggable="true">子2-1</div>
+      <div class="grid-item" style="display:none;" draggable="true">子2-2</div>
+      <div class="grid-item" draggable="true">親3</div>
+      <div class="grid-item" style="display:none;" draggable="true">子3-1</div>
+      <div class="grid-item" style="display:none;" draggable="true">子3-2</div>
+      <!-- 略 -->
+      <!-- 他の要素も追加 -->
+    </div>
+
+    <script>
+      let draggedElem = null;
+
+      document
+        .querySelectorAll("#gridContainer .grid-item")
+        .forEach(function (item) {
+          item.addEventListener("dragstart", function (e) {
+            draggedElem = this;
+            e.dataTransfer.effectAllowed = "move";
+          });
+
+          item.addEventListener("dragover", function (e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = "move";
+          });
+
+          item.addEventListener("drop", function (e) {
+            e.preventDefault();
+            if (draggedElem !== this) {
+              this.parentNode.removeChild(draggedElem);
+              this.insertAdjacentElement("beforebegin", draggedElem);
+            }
+          });
+
+          item.addEventListener("dragend", function (e) {
+            draggedElem = null;
+          });
+        });
+    </script>
+  </body>
+</html>

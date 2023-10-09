@@ -53,6 +53,9 @@ dependencies:
   sigma:
     specifier: 3.0.0-alpha3
     version: 3.0.0-alpha3(graphology-types@0.24.7)
+  sortablejs:
+    specifier: ^1.15.0
+    version: 1.15.0
   three:
     specifier: ^0.156.1
     version: 0.156.1
@@ -4087,6 +4090,10 @@ packages:
 
   /sisteransi@1.0.5:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
+    dev: false
+
+  /sortablejs@1.15.0:
+    resolution: {integrity: sha512-bv9qgVMjUMf89wAvM6AxVvS/4MX3sPeN0+agqShejLU5z5GX4C75ow1O2e5k4L6XItUyAK3gH6AxSbXrOM5e8w==}
     dev: false
 
   /source-map-js@1.0.2:
