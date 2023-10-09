@@ -1,14 +1,28 @@
+import { createStore } from "tinybase";
+// TODO: resolve tinybase path
+// import { createLocalPersister } from "tinybase/lib/types/persisters/persister-browser/with-schemas";
+
 // 0. 座標を表すインターフェイスを定義
 interface Coordinates {
   left: string;
   top: string;
 }
 
+type Position = {
+  left: string;
+  top: string;
+};
+
+const defaultPosition: Position = { left: "50px", top: "50px" };
+
 // 1. ローカルストレージから座標をロードする関数
-export function loadCoordinatesFromLocalStorage(key: string): Coordinates {
+export function loadCoordinatesFromLocalStorage(
+  defaultPosition: Position,
+  key: string,
+): Coordinates {
   const item = localStorage.getItem(key);
   if (item === null) {
-    return { left: "50px", top: "50px" }; // デフォルトの値を返す
+    return defaultPosition; // デフォルトの値を返す
   }
   return JSON.parse(item);
 }
@@ -27,19 +41,22 @@ export function updateElementPosition(
 
 // 3. これらの関数を使って要素の位置を設定する関数
 export function setElementPositions(elFrom: string, elTo: string): void {
-  const elFromCoords = loadCoordinatesFromLocalStorage(elFrom);
-  const elToCoords = loadCoordinatesFromLocalStorage(elTo);
+  const elFromCoords = loadCoordinatesFromLocalStorage(defaultPosition, elFrom);
+  const elToCoords = loadCoordinatesFromLocalStorage(defaultPosition, elTo);
 
   updateElementPosition(elFrom, elFromCoords);
   updateElementPosition(elTo, elToCoords);
 }
 
 // 座標情報をローカルストレージに保存する
-export function saveCoordinatesToLocalStorage(el: HTMLElement) {
+export async function saveCoordinatesToLocalStorage(el: HTMLElement) {
   const rect = el.getBoundingClientRect();
   const coords = {
     left: `${rect.left}px`,
     top: `${rect.top}px`,
   };
-  localStorage.setItem(el.id, JSON.stringify(coords));
+  // localStorage.setItem(el.id, JSON.stringify(coords));
+  const store = createStore().setValues(coords);
+  // const persister = createLocalPersister(store, "els");
+  // await persister.save();
 }
