@@ -55,8 +55,8 @@ export async function saveCoordinatesToLocalStorage(el: HTMLElement) {
     left: `${rect.left}px`,
     top: `${rect.top}px`,
   };
-  // localStorage.setItem(el.id, JSON.stringify(coords));
-  const store = createStore().setValues(coords);
+  localStorage.setItem(el.id, JSON.stringify(coords));
+  // const store = createStore().setValues(coords);
   // const persister = createLocalPersister(store, "els");
   // await persister.save();
 }
