@@ -4,10 +4,12 @@ htmx.onLoad((content: HTMLElement) => {
   const sortables: NodeListOf<HTMLElement> =
     content.querySelectorAll(".sortable");
   for (let i = 0; i < sortables.length; i++) {
-    const sortable: HTMLElement = sortables[i];
-    new Sortable(sortable, {
+    new Sortable(sortables[i], {
+      group: "nested",
       animation: 150,
-      ghostClass: "blue-background-class",
+      // ghostClass: "blue-background-class",
+      fallbackOnBody: true,
+      swapThreshold: 0.65,
     });
   }
 });

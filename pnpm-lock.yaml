@@ -23,6 +23,9 @@ dependencies:
   '@types/react-dom':
     specifier: ^18.0.6
     version: 18.0.6
+  '@types/sortablejs':
+    specifier: ^1.15.3
+    version: 1.15.3
   '@types/three':
     specifier: ^0.156.0
     version: 0.156.0
@@ -1198,6 +1201,10 @@ packages:
 
   /@types/scheduler@0.16.4:
     resolution: {integrity: sha512-2L9ifAGl7wmXwP4v3pN4p2FLhD0O1qsJpvKmNin5VA8+UvNVb447UDaAEV6UdrkA+m/Xs58U1RFps44x6TFsVQ==}
+    dev: false
+
+  /@types/sortablejs@1.15.3:
+    resolution: {integrity: sha512-v+zh6TZP/cLeMUK0MDx1onp8e7Jk2/4iTQ7sb/n80rTAvBm14yJkpOEfJdrTCkHiF7IZbPjxGX2NRJfogRoYIg==}
     dev: false
 
   /@types/stats.js@0.17.1:

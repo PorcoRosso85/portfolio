@@ -1,27 +1,34 @@
 <!-- jsDelivr :: Sortable :: Latest (https://www.jsdelivr.com/package/npm/sortablejs) -->
-<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"
-></script>
-
-<form class="sortable" hx-post="/items" hx-trigger="end">
+<form class="sortable grid-container" hx-post="/items" hx-trigger="end">
   <div class="htmx-indicator">Updating...</div>
-  <div><input type="hidden" name="item" value="1" />Item 1</div>
-  <div><input type="hidden" name="item" value="2" />Item 2</div>
-  <div><input type="hidden" name="item" value="3" />Item 3</div>
-  <div><input type="hidden" name="item" value="4" />Item 4</div>
-  <div><input type="hidden" name="item" value="5" />Item 5</div>
+  <div class="grid-item">
+    <input type="hidden" name="item" value="1" />Item 1
+  </div>
+  <div class="grid-item">
+    <input type="hidden" name="item" value="2" />Item 2
+  </div>
+  <div class="grid-item">
+    <input type="hidden" name="item" value="3" />Item 3
+  </div>
+  <div class="grid-item">
+    <input type="hidden" name="item" value="4" />Item 4
+  </div>
+  <div class="grid-item">
+    <input type="hidden" name="item" value="5" />Item 5
+  </div>
 </form>
 
-<!-- <script>
-  htmx.onLoad(function (content) {
-    var sortables = content.querySelectorAll(".sortable");
-    for (var i = 0; i < sortables.length; i++) {
-      var sortable = sortables[i];
-      new Sortable(sortable, {
-        animation: 150,
-        ghostClass: "blue-background-class",
-      });
-    }
-  });
-</script> -->
-
 <script src="./sortable.ts"></script>
+
+<style>
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px; /* グリッドアイテム間の隙間 */
+  }
+
+  .grid-item {
+    border: 1px solid #000; /* 枠線を設定 */
+    padding: 10px; /* 内側の余白を設定 */
+  }
+</style>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Drag and Drop Example</title>
+    <style>
+      .drag-area {
+        min-height: 50px;
+        outline: 1px dashed;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .draggable-item {
+        padding: 10px;
+        margin: 5px;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="drag-area" id="taskList1">
+      <li class="draggable-item" draggable="true">
+        <div class="item-content">Task 1</div>
+        <div class="grid-area"></div>
+      </li>
+      <li class="draggable-item" draggable="true">Task 2</li>
+      <li class="draggable-item" draggable="true">Task 3</li>
+      <li class="draggable-item" draggable="true">Task 4</li>
+    </ul>
+    <li class="draggable-item" draggable="true">Task 4</li>
+  </body>
+
+  <script src="./NestedSortable.js"></script>
+</html>
+
+<style>
+  .drag-area {
+    min-height: 50px;
+    outline: 1px dashed;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .draggable-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+  }
+
+  .item-content {
+    flex: 1;
+  }
+
+  .grid-area {
+    flex: 1;
+    display: flex;
+    flex-direction: row; /* 水平方向に要素を並べる */
+    overflow-x: auto; /* 横スクロールを可能にする */
+    border-left: 1px solid #ccc;
+    padding-left: 10px;
+  }
+</style>
