@@ -1,5 +1,5 @@
 <!-- jsDelivr :: Sortable :: Latest (https://www.jsdelivr.com/package/npm/sortablejs) -->
-<form class="sortable grid-container" hx-post="/items" hx-trigger="end">
+<form class="sortable grid-container" hx-trigger="end">
   <div class="htmx-indicator">Updating...</div>
   <div class="grid-item">
     <input type="hidden" name="item" value="1" />Item 1
@@ -18,7 +18,7 @@
   </div>
 </form>
 
-<script src="./sortable.ts"></script>
+<script src="./HxSortable.ts"></script>
 
 <style>
   .grid-container {
