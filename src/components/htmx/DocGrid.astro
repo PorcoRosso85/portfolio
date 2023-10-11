@@ -3,74 +3,67 @@
   <li>item 2</li>
   <li>item 3</li>
 </ul> -->
-<ul id="nestedDemo" class="list-group col nested-sortable">
-  <li class="list-group-item dir" style="">
-    Item 1.1
-    <ul class="list-group nested-sortable">
-      <li class="list-group-item dir" draggable="false" style="">
-        Item 2.2
-        <ul class="list-group nested-sortable">
-          <li class="list-group-item dir" draggable="false" style="">
-            Item 3.1
-          </li>
-          <li class="list-group-item dir" style="" draggable="false">
-            Item 3.2
-          </li>
-          <li class="list-group-item dir" style="" draggable="false">
-            Item 3.3
-          </li>
-          <li class="list-group-item dir" style="" draggable="false">
-            Item 3.4
-          </li>
-        </ul>
+<ul id="nestedDemo" class="child">
+  <li class="dir">
+    Item 1
+    <ul class="child">
+      <li class="file">
+        Item 1.1
+        <ul class="child file"></ul>
       </li>
-      <li class="list-group-item dir" style="" draggable="false">Item 2.1</li>
-      <li class="list-group-item dir">Item 2.3</li>
-      <ul>
-        <li class="list-group-item dir"></li>
-      </ul>
-      <li class="list-group-item
-          dir">Item 2.4</li>
+      <li class="func">
+        Item 1.1.1
+        <ul class="child"></ul>
+      </li>
+      <li class="func">
+        Item 1.1.2
+        <ul class="child"></ul>
+      </li>
+      <li class="func">
+        Item 1.1.3
+        <ul class="child"></ul>
+      </li>
     </ul>
-  </li>
-  <li class="list-group-item dir" style="">Item 1.2</li>
-  <li class="list-group-item dir" style="">Item 1.3</li>
-  <li class="list-group-item dir" style="">
-    Item 1.4
-    <ul class="list-group nested-sortable">
-      <li class="list-group-item dir" style="">Item 2.2</li>
-      <li class="list-group-item dir" draggable="false" style="">Item 2.1</li>
-      <li class="list-group-item dir" style="">Item 2.3</li>
-      <li class="list-group-item dir" style="" draggable="false">Item 2.4</li>
-    </ul>
-  </li>
-  <li class="list-group-item dir" style="">
-    <ul class="list-group nested-sortable">
-      <li class="list-group-item dir" style=""></li>
-      <li class="list-group-item dir" draggable="false" style=""></li>
-      <li class="list-group-item dir" style=""></li>
-      <li class="list-group-item dir" style="" draggable="false"></li>
-    </ul>
+    <li class="dir">
+      Item 2.1
+      <ul class="child"></ul>
+      <li class="dir">
+        Item 2.3
+        <ul class="child"></ul>
+      </li>
+      <li class="dir">
+        Item 2.4
+        <ul class="child"></ul>
+      </li>
+    </li>
   </li>
 </ul>
 
 <style>
-  <style > .list-group-item {
-    margin: 5px;
+  .child {
+    min-width: 30%;
   }
   .dir {
     padding: 10px;
     background-color: #fff9ff;
   }
   .file {
-    border: 2px solid blue;
+    display: flex;
+    flex: none;
     padding: 10px;
     background-color: #e6f0ff;
   }
   .func {
-    border: 2px solid green;
     padding: 10px;
     background-color: #e6ffe6;
+  }
+  rgb(243, 255, 243) .highlight {
+    border: 2px dashed #0082fc;
+    background-color: #e0f7fa;
+  }
+  .dir:hover,
+  .file:hover {
+    background-color: #d9edf7;
   }
 </style>
 
