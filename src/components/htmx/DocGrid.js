@@ -13,5 +13,8 @@ for (var i = 0; i < nestedSortables.length; i++) {
     onChoose: function (evt) {
       evt.item.classList.add("highlight");
     },
+    onUnchoose: function (evt) {
+      evt.item.classList.remove("highlight");
+    },
   });
 }
