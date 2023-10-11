@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coordinate Fetcher</title>
+  </head>
+  <body>
+    <!-- <button id="alert1" hx-on:click="alert('Making a request!')"
+      >alert works</button
+    >
+    <button id="alert2" hx-on="click: alert('Making a request!')"
+      >alert also works</button
+    > -->
+    <button hx-trigger="click" hx-ext="drawline">drawline</button>
+    <div id="2" style="width:200px; height:200px; background-color:skyblue;">
+    </div>
+    <div id="3" style="width:200px; height:200px; background-color:yellow;">
+    </div>
+    <div class="linetest" id="line"></div>
+  </body>
+</html>
+
+<style>
+  .2boxline {
+    position: absolute;
+    border: 1px solid black;
+    transform-origin: 0 0;
+  }
+  .linetest {
+    position: absolute;
+    background-color: black; /* 直線の色 */
+    transform-origin: 0 0;
+  }
+</style>
+
+<script src="./drawline.ts"></script>
+<!-- <script src="./test.ts"></script> -->
