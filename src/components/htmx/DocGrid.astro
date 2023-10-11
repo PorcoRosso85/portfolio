@@ -10,7 +10,14 @@
       <li class="list-group-item dir" style="">
         Item 2.2
         <ul class="list-group nested-sortable">
-          <li class="list-group-item dir" style="">Item 3.1</li>
+          <li class="list-group-item dir" style="">
+            <div class="flex-container">
+              <div class="flex-item">Item 1.1</div>
+              <ul class="list-group nested-sortable dropzone flex-item">
+                <!-- ここにドロップされたアイテムが表示されます -->
+              </ul>
+            </div>
+          </li>
           <li class="list-group-item dir" style="">Item 3.2</li>
           <li class="list-group-item dir" style="">Item 3.3</li>
           <li class="list-group-item dir" style="">Item 3.4</li>
@@ -43,6 +50,20 @@
 </ul>
 
 <style>
+  .flex-container {
+    display: flex;
+  }
+
+  .flex-item {
+    flex: none;
+  }
+
+  .dropzone {
+    display: flex;
+    border: 2px dashed #ccc;
+    min-height: 50px;
+    padding: 10px;
+  }
   <style > .list-group-item {
     margin: 5px;
   }
