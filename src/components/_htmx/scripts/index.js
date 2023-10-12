@@ -1,7 +1,8 @@
 import Sortable from "sortablejs";
 import { store } from "../../../repositories/StoreDocGrid";
-import "./line.js";
+import "./line";
 import { observer } from "./observe";
+import { loadFromLocalStorage } from "./loadLocalData";
 
 // var el = document.getElementById("items");
 // var sortable = Sortable.create(el);
@@ -26,3 +27,8 @@ console.log(store.getTable("html"));
 console.log(store.getTables());
 
 observer;
+
+// アプリケーションの起動時にローカルストレージからデータを読み込む
+window.addEventListener("DOMContentLoaded", (event) => {
+  loadFromLocalStorage();
+});
