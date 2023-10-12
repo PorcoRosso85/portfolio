@@ -1,4 +1,5 @@
 import Sortable from "sortablejs";
+import { store } from "../../repositories/StoreDocGrid";
 
 // var el = document.getElementById("items");
 // var sortable = Sortable.create(el);
@@ -18,3 +19,5 @@ for (var i = 0; i < nestedSortables.length; i++) {
     },
   });
 }
+
+console.log(store.getTable("html"));
