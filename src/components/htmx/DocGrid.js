@@ -21,3 +21,4 @@ for (var i = 0; i < nestedSortables.length; i++) {
 }
 
 console.log(store.getTable("html"));
+console.log(store.getTables());
